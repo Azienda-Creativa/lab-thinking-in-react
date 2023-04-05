@@ -7,30 +7,28 @@ function ProductsPage() {
   const data = [...jsonData];
   const [products, setProducts] = useState(data);
   const [search, setSearch] = useState('');
-  const [inStock, setInStock] = useState(false);
+  const [stock, setInStock] = useState(false);
 
-  const handleSearch = (search) => {
-    setSearch(search);
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
   };
 
-  const isInStock = (value) => {
-    setInStock(value);
+  const isInStock = (event) => {
+    setInStock(event.target.checked);
   };
 
-  // const filterProducts = () => {
-  //   products.filter((product) => {
-  //     product.name.includes(product);
-  //   });
-  // };
+  const filterProduct = products.filter((product) =>
+    product.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const resultProduct = filterProduct.filter((product) =>
+    stock ? product.inStock : true
+  );
 
   return (
     <div>
-      <SearchBar
-        search={search}
-        handleSearch={handleSearch}
-        inStock={isInStock}
-      />
-      <ProductTable />
+      <SearchBar search={search} onSearch={handleSearch} onCheck={isInStock} />
+      <ProductTable products={resultProduct} />
     </div>
   );
 }

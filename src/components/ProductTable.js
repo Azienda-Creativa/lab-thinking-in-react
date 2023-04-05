@@ -1,7 +1,6 @@
 import ProductRow from './ProductRow';
 
 function ProductTable({ products }) {
-  console.log({ products });
   return (
     <div>
       <table className="table">
@@ -12,9 +11,7 @@ function ProductTable({ products }) {
           </tr>
         </thead>
         <tbody>
-          {products.find((product) => (
-            <ProductRow key={product.id} item={product} />
-          ))}
+          <ProductRow products={products} />
         </tbody>
       </table>
     </div>
