@@ -5,7 +5,7 @@ import ProductTable from './ProductTable';
 
 function ProductsPage() {
   const data = [...jsonData];
-  const [products, setProducts] = useState(data);
+  const [products] = useState(data);
   const [search, setSearch] = useState('');
   const [stock, setInStock] = useState(false);
 

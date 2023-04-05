@@ -1,7 +1,7 @@
 export const SearchBar = ({ search, onSearch, onStock }) => {
   console.log({ search });
   return (
-    <form className="form" action="GET">
+    <form className="form" action="">
       <div className="title">
         <h1>IronStore</h1>
       </div>

@@ -1,8 +1,8 @@
-function ProductRow({ key, products }) {
+function ProductRow({ product, key }) {
   return (
-    <tr key={products}>
-      <td>{products.name}</td>
-      <td>{products.price}</td>
+    <tr key={key}>
+      <td>{product.name}</td>
+      <td>{product.price}</td>
     </tr>
   );
 }

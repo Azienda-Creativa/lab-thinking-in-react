@@ -11,7 +11,9 @@ function ProductTable({ products }) {
           </tr>
         </thead>
         <tbody>
-          <ProductRow products={products} />
+          {products.map((product) => (
+            <ProductRow product={product} key={product.id} />
+          ))}
         </tbody>
       </table>
     </div>
